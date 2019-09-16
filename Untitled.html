@@ -13115,18 +13115,17 @@ div#notebook {
 
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[1]:</div>
+<div class="prompt input_prompt">In&nbsp;[5]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">os</span>
-<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
 <span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
-<span class="kn">from</span> <span class="nn">PIL</span> <span class="k">import</span> <span class="n">Image</span>
-<span class="kn">import</span> <span class="nn">json</span>
-<span class="kn">from</span> <span class="nn">glob</span> <span class="k">import</span> <span class="n">glob</span>
-<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
-<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="c1">#%matplotlib inline</span>
 <span class="kn">import</span> <span class="nn">math</span>
+<span class="kn">from</span> <span class="nn">tqdm</span> <span class="k">import</span> <span class="n">tqdm_notebook</span><span class="p">,</span> <span class="n">tqdm</span>
+<span class="kn">from</span> <span class="nn">skimage.draw</span> <span class="k">import</span> <span class="n">ellipse</span><span class="p">,</span> <span class="n">polygon</span>
+
 <span class="kn">from</span> <span class="nn">keras</span> <span class="k">import</span> <span class="n">Model</span>
 <span class="kn">from</span> <span class="nn">keras.callbacks</span> <span class="k">import</span> <span class="n">EarlyStopping</span><span class="p">,</span> <span class="n">ModelCheckpoint</span><span class="p">,</span> <span class="n">ReduceLROnPlateau</span>
 <span class="kn">from</span> <span class="nn">keras.models</span> <span class="k">import</span> <span class="n">load_model</span>
@@ -13151,6 +13150,48 @@ div#notebook {
 </pre></div>
 
     </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
+<div class="output_subarea output_stream output_stderr output_text">
+<pre>Using TensorFlow backend.
+/usr/local/lib/python3.6/dist-packages/tensorflow/python/framework/dtypes.py:516: FutureWarning: Passing (type, 1) or &#39;1type&#39; as a synonym of type is deprecated; in a future version of numpy, it will be understood as (type, (1,)) / &#39;(1,)type&#39;.
+  _np_qint8 = np.dtype([(&#34;qint8&#34;, np.int8, 1)])
+/usr/local/lib/python3.6/dist-packages/tensorflow/python/framework/dtypes.py:517: FutureWarning: Passing (type, 1) or &#39;1type&#39; as a synonym of type is deprecated; in a future version of numpy, it will be understood as (type, (1,)) / &#39;(1,)type&#39;.
+  _np_quint8 = np.dtype([(&#34;quint8&#34;, np.uint8, 1)])
+/usr/local/lib/python3.6/dist-packages/tensorflow/python/framework/dtypes.py:518: FutureWarning: Passing (type, 1) or &#39;1type&#39; as a synonym of type is deprecated; in a future version of numpy, it will be understood as (type, (1,)) / &#39;(1,)type&#39;.
+  _np_qint16 = np.dtype([(&#34;qint16&#34;, np.int16, 1)])
+/usr/local/lib/python3.6/dist-packages/tensorflow/python/framework/dtypes.py:519: FutureWarning: Passing (type, 1) or &#39;1type&#39; as a synonym of type is deprecated; in a future version of numpy, it will be understood as (type, (1,)) / &#39;(1,)type&#39;.
+  _np_quint16 = np.dtype([(&#34;quint16&#34;, np.uint16, 1)])
+/usr/local/lib/python3.6/dist-packages/tensorflow/python/framework/dtypes.py:520: FutureWarning: Passing (type, 1) or &#39;1type&#39; as a synonym of type is deprecated; in a future version of numpy, it will be understood as (type, (1,)) / &#39;(1,)type&#39;.
+  _np_qint32 = np.dtype([(&#34;qint32&#34;, np.int32, 1)])
+/usr/local/lib/python3.6/dist-packages/tensorflow/python/framework/dtypes.py:525: FutureWarning: Passing (type, 1) or &#39;1type&#39; as a synonym of type is deprecated; in a future version of numpy, it will be understood as (type, (1,)) / &#39;(1,)type&#39;.
+  np_resource = np.dtype([(&#34;resource&#34;, np.ubyte, 1)])
+/usr/local/lib/python3.6/dist-packages/tensorboard/compat/tensorflow_stub/dtypes.py:541: FutureWarning: Passing (type, 1) or &#39;1type&#39; as a synonym of type is deprecated; in a future version of numpy, it will be understood as (type, (1,)) / &#39;(1,)type&#39;.
+  _np_qint8 = np.dtype([(&#34;qint8&#34;, np.int8, 1)])
+/usr/local/lib/python3.6/dist-packages/tensorboard/compat/tensorflow_stub/dtypes.py:542: FutureWarning: Passing (type, 1) or &#39;1type&#39; as a synonym of type is deprecated; in a future version of numpy, it will be understood as (type, (1,)) / &#39;(1,)type&#39;.
+  _np_quint8 = np.dtype([(&#34;quint8&#34;, np.uint8, 1)])
+/usr/local/lib/python3.6/dist-packages/tensorboard/compat/tensorflow_stub/dtypes.py:543: FutureWarning: Passing (type, 1) or &#39;1type&#39; as a synonym of type is deprecated; in a future version of numpy, it will be understood as (type, (1,)) / &#39;(1,)type&#39;.
+  _np_qint16 = np.dtype([(&#34;qint16&#34;, np.int16, 1)])
+/usr/local/lib/python3.6/dist-packages/tensorboard/compat/tensorflow_stub/dtypes.py:544: FutureWarning: Passing (type, 1) or &#39;1type&#39; as a synonym of type is deprecated; in a future version of numpy, it will be understood as (type, (1,)) / &#39;(1,)type&#39;.
+  _np_quint16 = np.dtype([(&#34;quint16&#34;, np.uint16, 1)])
+/usr/local/lib/python3.6/dist-packages/tensorboard/compat/tensorflow_stub/dtypes.py:545: FutureWarning: Passing (type, 1) or &#39;1type&#39; as a synonym of type is deprecated; in a future version of numpy, it will be understood as (type, (1,)) / &#39;(1,)type&#39;.
+  _np_qint32 = np.dtype([(&#34;qint32&#34;, np.int32, 1)])
+/usr/local/lib/python3.6/dist-packages/tensorboard/compat/tensorflow_stub/dtypes.py:550: FutureWarning: Passing (type, 1) or &#39;1type&#39; as a synonym of type is deprecated; in a future version of numpy, it will be understood as (type, (1,)) / &#39;(1,)type&#39;.
+  np_resource = np.dtype([(&#34;resource&#34;, np.ubyte, 1)])
+</pre>
+</div>
+</div>
+
 </div>
 </div>
 
@@ -13210,23 +13251,21 @@ div#notebook {
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">imagss</span> <span class="o">=</span> <span class="p">[</span><span class="n">i</span><span class="p">[:</span><span class="o">-</span><span class="mi">4</span><span class="p">]</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">images</span><span class="p">]</span>
 
-<span class="n">train_x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">Image</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="n">f</span><span class="s2">&quot;</span><span class="si">{path}</span><span class="s2">/</span><span class="si">{ind}</span><span class="s2">.jpg&quot;</span><span class="p">))</span><span class="o">/</span><span class="mi">255</span> <span class="k">for</span> <span class="n">ind</span> <span class="ow">in</span> <span class="n">imagss</span><span class="p">])</span>
-<span class="n">train_y</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">Image</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="n">f</span><span class="s2">&quot;</span><span class="si">{path}</span><span class="s2">_mask/</span><span class="si">{ind}</span><span class="s2">.png&quot;</span><span class="p">))</span><span class="o">/</span><span class="mi">255</span><span class="p">]</span> <span class="k">for</span> <span class="n">ind</span> <span class="ow">in</span> <span class="n">imagss</span><span class="p">])</span><span class="o">.</span><span class="n">reshape</span><span class="p">((</span><span class="mi">1315</span><span class="p">,</span> <span class="mi">320</span><span class="p">,</span> <span class="mi">240</span><span class="p">,</span> <span class="mi">1</span><span class="p">))</span>
+<span class="kn">from</span> <span class="nn">keras</span> <span class="k">import</span> <span class="n">backend</span> <span class="k">as</span> <span class="n">K</span>
+
+<span class="kn">from</span> <span class="nn">tqdm</span> <span class="k">import</span> <span class="n">tqdm_notebook</span>
+<span class="n">w_size</span> <span class="o">=</span> <span class="mi">256</span>
+<span class="n">train_num</span> <span class="o">=</span> <span class="mi">8192</span>
+<span class="n">train_x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="n">train_num</span><span class="p">,</span> <span class="n">w_size</span><span class="p">,</span> <span class="n">w_size</span><span class="p">,</span><span class="mi">3</span><span class="p">),</span> <span class="n">dtype</span><span class="o">=</span><span class="s1">&#39;float32&#39;</span><span class="p">)</span>
+<span class="n">train_y</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="n">train_num</span><span class="p">,</span> <span class="n">w_size</span><span class="p">,</span> <span class="n">w_size</span><span class="p">,</span><span class="mi">1</span><span class="p">),</span> <span class="n">dtype</span><span class="o">=</span><span class="s1">&#39;float32&#39;</span><span class="p">)</span>
+<span class="n">Я</span> <span class="n">пользуюсь</span> <span class="n">оптимизатором</span> <span class="p">[</span><span class="n">Adam</span><span class="p">](</span><span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">arxiv</span><span class="o">.</span><span class="n">org</span><span class="o">/</span><span class="nb">abs</span><span class="o">/</span><span class="mf">1412.6980</span><span class="p">),</span> <span class="n">он</span> <span class="n">проще</span> <span class="n">в</span> <span class="n">настройке</span> <span class="n">и</span> <span class="n">показал</span> <span class="n">себя</span> <span class="n">лучше</span><span class="p">,</span> <span class="n">чем</span><span class="p">,</span> <span class="n">например</span><span class="p">,</span> <span class="n">градиентный</span> <span class="n">спуск</span><span class="o">.</span>
+<span class="n">Подбирая</span> <span class="n">параметры</span> <span class="n">я</span> <span class="n">пришел</span> <span class="n">к</span> <span class="n">таким</span> <span class="n">настройкам</span><span class="p">:</span>
 </pre></div>
 
     </div>
 </div>
 </div>
 
-</div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="Train-model">Train model<a class="anchor-link" href="#Train-model">&#182;</a></h2><p>Я пользуюсь оптимизатором <a href="https://arxiv.org/abs/1412.6980">Adam</a>, он проще в настройке и показал себя лучше, чем, например, градиентный спуск.
-Подбирая параметры я пришел к таким настройкам:</p>
-
-</div>
-</div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
@@ -13304,23 +13343,11 @@ Epoch 1/1
 <span class="n">val_x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">Image</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="n">f</span><span class="s2">&quot;</span><span class="si">{val_path}</span><span class="s2">/</span><span class="si">{ind}</span><span class="s2">&quot;</span><span class="p">))</span><span class="o">/</span><span class="mi">255</span> <span class="k">for</span> <span class="n">ind</span> <span class="ow">in</span> <span class="n">val_images</span><span class="p">])</span>
 <span class="n">pre</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">val_x</span><span class="p">)</span>
 
-<span class="n">data</span> <span class="o">=</span> <span class="p">{</span><span class="n">val_images</span><span class="p">[</span><span class="n">i</span><span class="p">][:</span><span class="o">-</span><span class="mi">4</span><span class="p">]:</span><span class="n">encode_rle</span><span class="p">(</span><span class="n">pre</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">&gt;</span> <span class="n">TRUSTVAL</span><span class="p">)</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">val_x</span><span class="p">))}</span>
+<span class="n">img_l</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">sample</span><span class="p">((</span><span class="n">w_size</span><span class="p">,</span> <span class="n">w_size</span><span class="p">,</span> <span class="mi">3</span><span class="p">))</span><span class="o">*</span><span class="mf">0.5</span>
+<span class="n">img_h</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">sample</span><span class="p">((</span><span class="n">w_size</span><span class="p">,</span> <span class="n">w_size</span><span class="p">,</span> <span class="mi">3</span><span class="p">))</span><span class="o">*</span><span class="mf">0.5</span> <span class="o">+</span> <span class="mf">0.5</span>
 
-<span class="n">json_data</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">dumps</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
-</pre></div>
-
-    </div>
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;data.json&#39;</span><span class="p">,</span> <span class="s1">&#39;w&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
-    <span class="n">json</span><span class="o">.</span><span class="n">dump</span><span class="p">(</span><span class="n">json_data</span><span class="p">,</span> <span class="n">f</span><span class="p">)</span>
+<span class="n">radius_min</span> <span class="o">=</span> <span class="mi">10</span>
+<span class="n">radius_max</span> <span class="o">=</span> <span class="mi">30</span>
 </pre></div>
 
     </div>
@@ -13340,28 +13367,7 @@ Epoch 1/1
 <div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">val_x</span><span class="p">)):</span>
-    <span class="n">a</span> <span class="o">=</span> <span class="p">(</span><span class="n">pre</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">&gt;</span> <span class="n">TRUSTVAL</span><span class="p">)</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">uint8</span><span class="p">)</span><span class="o">*</span><span class="mi">255</span>
-    <span class="n">j</span> <span class="o">=</span> <span class="n">Image</span><span class="o">.</span><span class="n">fromarray</span><span class="p">(</span><span class="n">a</span><span class="o">.</span><span class="n">reshape</span><span class="p">((</span><span class="mi">320</span><span class="p">,</span> <span class="mi">240</span><span class="p">)),</span> <span class="n">mode</span> <span class="o">=</span> <span class="s1">&#39;L&#39;</span><span class="p">)</span>
-    <span class="n">j</span><span class="o">.</span><span class="n">save</span><span class="p">(</span><span class="s2">&quot;data/validMask/&quot;</span> <span class="o">+</span> <span class="n">val_images</span><span class="p">[</span><span class="n">i</span><span class="p">])</span>
-</pre></div>
-
-    </div>
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">from</span> <span class="nn">datetime</span> <span class="k">import</span> <span class="n">datetime</span>
-
-<span class="n">paths_to_imgs</span> <span class="o">=</span> <span class="nb">sorted</span><span class="p">(</span><span class="n">glob</span><span class="p">(</span><span class="s2">&quot;data/valid/*&quot;</span><span class="p">))</span>
-<span class="n">pred_masks</span> <span class="o">=</span> <span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">Image</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="n">path</span><span class="p">))</span> <span class="k">for</span> <span class="n">path</span> <span class="ow">in</span> <span class="nb">sorted</span><span class="p">(</span><span class="n">glob</span><span class="p">(</span><span class="s2">&quot;data/validMask/*&quot;</span><span class="p">))]</span>
-
-<span class="n">_</span> <span class="o">=</span> <span class="n">get_html</span><span class="p">(</span><span class="n">paths_to_imgs</span><span class="p">,</span> <span class="n">pred_masks</span><span class="p">,</span> <span class="n">path_to_save</span><span class="o">=</span><span class="s2">&quot;results/example&quot;</span><span class="p">)</span>
+<div class=" highlight hl-ipython3"><pre><span></span> 
 </pre></div>
 
     </div>
